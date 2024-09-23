@@ -9,28 +9,36 @@ export function SignButtons ({ navigation, userType }) {
     <View style={styles.container}>
       <View style={styles.buttons}>
         <Button
-          title='INICIAR SESIÓN'
+          title="INICIAR SESIÓN"
           onPress={() => moveToSignIn()}
           buttonStyle={styles.button}
-          color='#B762C1'
+          color="#FF7D3E"
         />
         <Button
-          title='REGISTRARSE'
+          title="REGISTRARSE"
           onPress={() => moveToSignUp()}
-          color='#8946A6'
+          color="#FF7D3E"
           buttonStyle={styles.button}
         />
       </View>
       <Text
         style={styles.switchUserType}
-        onPress={userType === 'passenger'
-          ? () => navigation.navigate('DriverCarousel', { animation: 'slide_from_bottom' })
-          : () => navigation.navigate('PassengerCarousel', { animation: 'slide_from_bottom' })}
+        onPress={
+          userType === "passenger"
+            ? () =>
+                navigation.navigate("DriverCarousel", {
+                  animation: "slide_from_bottom",
+                })
+            : () =>
+                navigation.navigate("PassengerCarousel", {
+                  animation: "slide_from_bottom",
+                })
+        }
       >
-        {userType === 'passenger' ? '¿Eres conductora?' : '¿Eres pasajera?'}
+        {userType === "passenger" ? "¿Eres concesionario?" : "¿Eres pasajero?"}
       </Text>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({

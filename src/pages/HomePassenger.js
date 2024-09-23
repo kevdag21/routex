@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, Image } from 'react-native'
 
 import UserContext from '../context/UserContext'
 import SignInLikeContext from '../context/SingInLikeContext'
@@ -12,6 +12,10 @@ function HomePassenger ({ navigation }) {
   const { signInLike } = useContext(SignInLikeContext)
   const { location } = useCurrentLocation()
 
+    const getImage = () => {
+     return require("../../assets/mapa.png");
+    };
+
   useEffect(() => {
     if (dataIsLoaded && !userData.idUserType) {
       if (signInLike === 'passenger') navigation.navigate('CompletePassengerProfile')
@@ -21,19 +25,27 @@ function HomePassenger ({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <PassengerMapContainer currentLocation={location} />
+      <Image
+        source={getImage()}
+        style={styles.img}
+        resizeMode="contain"
+      />
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-
-})
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  img: {
+    height: "100%",
+    width: "100%",
+    alignSelf: "center",
+  },
+});
 
 export { HomePassenger }

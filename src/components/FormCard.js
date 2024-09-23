@@ -92,36 +92,36 @@ export function FormCard ({ onPressButton = ({ name, postalCode }) => { }, card,
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignContent: 'center',
-    backgroundColor: '#FFF'
+    justifyContent: "center",
+    alignContent: "center",
+    backgroundColor: "#FFF",
   },
   card: {
-    width: '90%',
+    width: "90%",
     height: 60,
     borderWidth: 1,
-    borderRadius: 5
+    borderRadius: 5,
   },
   button: {
     marginTop: 20,
-    color: '#8946A6',
+    color: "#FF7D3E",
     width: 330,
     height: 50,
-    alignSelf: 'center',
-    borderRadius: 10
+    alignSelf: "center",
+    borderRadius: 10,
   },
   inputcontainer: {
-    width: '90%',
+    width: "90%",
     height: 60,
-    borderColor: 'black',
+    borderColor: "black",
     borderWidth: 1,
     borderRadius: 5,
-    alignSelf: 'center',
-    marginTop: '8%'
+    alignSelf: "center",
+    marginTop: "8%",
   },
   input: {
     borderBottomWidth: 0,
-    height: '100%',
-    alignItems: 'stretch'
-  }
-})
+    height: "100%",
+    alignItems: "stretch",
+  },
+});

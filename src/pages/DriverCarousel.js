@@ -8,7 +8,7 @@ const HEADERS = ['Ofrece un viaje seguro', 'Incrementa tus ingresos', 'Manten tu
 const DESCRIPTIONS = [
   'Se una de nuestras conductoras y ayudanos en ofrecer un servicio donde todas llegemos a casa.',
   'Aprovecha tu vehiculo y conviertete en nuestra socia, ofrecemos buen retorno monetario por cada viaje.',
-  'Aprovecha tus tiempos libres traslandando a las clientas de la app sin afectar tu tiempo laboral.'
+  'Controla tus camiones y todas tus ganancias. Sabemos lo importante que es para ti'
 ]
 const { height } = Dimensions.get('window')
 

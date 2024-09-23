@@ -82,36 +82,36 @@ export function CompletePassengerProfile ({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignContent: 'center',
-    backgroundColor: '#FFF',
-    height
+    justifyContent: "center",
+    alignContent: "center",
+    backgroundColor: "#FFF",
+    height,
   },
   header: {
-    alignSelf: 'center',
-    width: 335
+    alignSelf: "center",
+    width: 335,
   },
   title: {
-    fontFamily: 'OpenSans-Bold',
-    textAlign: 'left',
+    fontFamily: "OpenSans-Bold",
+    textAlign: "left",
     fontSize: 24,
-    marginBottom: 13
+    marginBottom: 13,
   },
   input: {
-    flexDirection: 'row',
-    backgroundColor: 'white',
-    justifyContent: 'center'
+    flexDirection: "row",
+    backgroundColor: "white",
+    justifyContent: "center",
   },
   providers: {
-    flexDirection: 'row',
-    justifyContent: 'space-around'
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
   button: {
     marginTop: 20,
-    color: '#8946A6',
+    color: "#FF7D3E",
     width: 330,
     height: 50,
-    alignSelf: 'center',
-    borderRadius: 10
-  }
-})
+    alignSelf: "center",
+    borderRadius: 10,
+  },
+});

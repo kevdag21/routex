@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react'
-import { StyleSheet, View, Text, Alert } from 'react-native'
+import { StyleSheet, View, Text, Alert, Image } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { useFocusEffect } from '@react-navigation/native'
 import { Button } from '@rneui/themed'
@@ -74,6 +74,13 @@ export default function Trip () {
     setShowModal(true)
   }
 
+   const getImage1 = () => {
+        return require("../../assets/Viaje.png");
+    };
+
+       const getImage2 = () => {
+         return require("../../assets/Viaje2.png");
+       };
   return (
     <View style={styles.container}>
       <ModalPayOffDebt
@@ -82,82 +89,40 @@ export default function Trip () {
         amount={stat.debt}
       />
       <View style={styles.filterSection}>
-        <Text style={[styles.title]}>Mis viajes</Text>
+        <Text style={[styles.title]}>Mis camiones</Text>
         <View style={styles.filterButons}>
           <Button
-            title="Hoy"
+            title="Ruta"
             onPress={() => filterTrips("getTripsToday")}
             color="#FFFFFF"
             titleStyle={{ color: "#000000" }}
+            style={styles.buttons}
           />
           <Button
-            title="Semana"
+            title="Camión"
             onPress={() => filterTrips("getTripsThisWeek")}
             color="#FFFFFF"
             titleStyle={{ color: "#000000" }}
+            style={styles.buttons}
           />
           <Button
-            title="Mes"
+            title="Todos"
             color="#FFFFFF"
             titleStyle={{ color: "#000000" }}
             onPress={() => filterTrips("getTripsThisMonth")}
+            style={styles.buttons}
           />
           <Button
-            title="Año"
+            title="$2500 ganado"
             color="#FFFFFF"
             titleStyle={{ color: "#000000" }}
             onPress={() => filterTrips("getTripsThisYear")}
+            style={styles.buttons}
           />
         </View>
       </View>
-      <View style={styles.statsSection}>
-        <View style={styles.statsButtons}>
-          <Button
-            title={stat.trip_count + " Viajes"}
-            color="#B762C1"
-            titleStyle={{ color: "#FFFFFF" }}
-          />
-          <Button
-            title="23 horas en línea"
-            color="#B762C1"
-            titleStyle={{ color: "#FFFFFF" }}
-          />
-          {userData.idUserType !== 1 ? 
-            <Button
-              title={stat.total_cost + " Gastado"}
-              color="#B762C1"
-              titleStyle={{ color: "#FFFFFF" }}
-            />
-         :
-            <Button
-              title={stat.total_cost + " Ganado"}
-              color="#B762C1"
-              titleStyle={{ color: "#FFFFFF" }}
-            />
-          }
-          <Button
-            title={stat.debt + " Debiendo"}
-            color="#B762C1"
-            titleStyle={{ color: "#FFFFFF" }}
-            onPress={handlePayOff}
-          />
-        </View>
-      </View>
-      <ScrollView bounces={false}>
-        <View style={styles.tripSection}>
-          {trip.map((trips, index) => {
-            return (
-              <TripContainer
-                key={trips.id}
-                startingPoint={trips.name_startingpoint}
-                endPoint={trips.name_endpoint}
-                cost={trips.cost}
-                status={trips.idstatus}
-              />
-            );
-          })}
-        </View>
-      </ScrollView>
+      <Image source={getImage1()} style={styles.img} resizeMode="contain" />
+      <Image source={getImage2()} style={styles.img} resizeMode="contain" />
     </View>
   );
 }
@@ -165,43 +130,53 @@ export default function Trip () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF'
+    backgroundColor: "#FFF",
   },
   title: {
     fontSize: 45,
-    color: '#FFF',
+    color: "#FFF",
     marginTop: 100,
-    marginLeft: 10
+    marginLeft: 10,
   },
   filterSection: {
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-    backgroundColor: '#B762C1',
+    alignItems: "flex-start",
+    justifyContent: "center",
+    backgroundColor: "#FF7D3E",
     padding: 0,
-    height: 230
+    height: 230,
   },
   statsSection: {
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-    backgroundColor: '#B762C1',
+    alignItems: "flex-start",
+    justifyContent: "center",
+    backgroundColor: "#FF7D3E",
     padding: 0,
     height: 100,
-    zIndex: 1
+    zIndex: 1,
   },
   filterButons: {
-    flexDirection: 'row',
-    gap: 40,
+    flexDirection: "row",
+    gap: 10,
     marginLeft: 10,
-    marginTop: 20
+    marginTop: 20,
   },
   statsButtons: {
-    flexDirection: 'row',
-    maxWidth: '27%',
-    margin: '2%'
+    flexDirection: "row",
+    maxWidth: "20%",
+    margin: "1%",
   },
   tripSection: {
-    backgroundColor: '#FFF',
+    backgroundColor: "#FFF",
     marginTop: 20,
-    zIndex: 2
-  }
-})
+    zIndex: 2,
+  },
+  buttons: {
+    padding: 0,
+    margin: 0,
+     
+  },
+    img: {
+    height: 197,
+    width: "100%",
+    alignSelf: "center",
+  },
+});

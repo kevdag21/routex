@@ -230,25 +230,25 @@ export default function ProfileDetails ({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF'
+    backgroundColor: "#FFF",
   },
   avatarSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#B762C1',
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#FF7D3E",
     marginBottom: 20,
-    height: '20%'
+    height: "20%",
   },
   detailsSection: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: "white",
   },
   button: {
     marginTop: 5,
-    color: '#8946A6',
+    color: "#8946A6",
     width: 330,
     height: 50,
-    alignSelf: 'center',
-    borderRadius: 10
-  }
-})
+    alignSelf: "center",
+    borderRadius: 10,
+  },
+});

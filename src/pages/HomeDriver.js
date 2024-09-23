@@ -261,126 +261,11 @@ function HomeDriver ({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <ToggleOnService onToggle={handleToggleService} />
-      <ModalReport
-        visible={showReport}
-        userToReport={tripSelected?.idPassenger}
-        onConfirm={handleConfirmReport}
-        onCancel={handleCancelReport}
+           <Image
+        source={"../../assets/MAPA.PNG"}
+        style={styles.img}
+        resizeMode="contain"
       />
-      <ModalWaitingPassenger
-        visible={showWaitingModal}
-        onPress={startTrip}
-      />
-      <ModalRating
-        userToRate={tripSelected?.idPassenger}
-        visible={showModalRating}
-        onPress={handleOnPressRating}
-      />
-      <MapContainer
-        currentLocation={location}
-      >
-        {
-          !!trips.length &&
-            <TripMarkers
-              trips={trips}
-              onPress={handleMarkerPress}
-            />
-        }
-        {
-          showRouteToStartingpoint && tripSelected &&
-            <MapViewDirections
-              origin={{
-                latitude: location.coords.latitude,
-                longitude: location.coords.longitude
-              }}
-              destination={{
-                latitude: tripSelected.startingpoint.latitude,
-                longitude: tripSelected.startingpoint.longitude
-              }}
-              apikey='AIzaSyBNLEE0e6JiPHJh88NuSvdOLBggmS43Mv0'
-              strokeWidth={6}
-              strokeColor='#FDCD03'
-              onReady={({ distance, duration }) => {
-                setDistanceToOrigin(distance)
-                setTimeToOrigin(duration)
-              }}
-            />
-        }
-        {
-          showRouteToEndpoint && tripSelected &&
-            <>
-              <MapViewDirections
-                origin={{
-                  latitude: tripSelected.startingpoint.latitude,
-                  longitude: tripSelected.startingpoint.longitude
-                }}
-                destination={{
-                  latitude: tripSelected.endpoint.latitude,
-                  longitude: tripSelected.endpoint.longitude
-                }}
-                apikey='AIzaSyBNLEE0e6JiPHJh88NuSvdOLBggmS43Mv0'
-                strokeWidth={6}
-                strokeColor='#B762C1'
-              />
-              <Marker
-                coordinate={{
-                  latitude: tripSelected.startingpoint.latitude,
-                  longitude: tripSelected.startingpoint.longitude
-                }}
-                title='Inicio'
-                pinColor='#8946A6'
-              />
-              <Marker
-                coordinate={{
-                  latitude: tripSelected.endpoint.latitude,
-                  longitude: tripSelected.endpoint.longitude
-                }}
-                title='Final'
-                pinColor='#8946A6'
-              />
-            </>
-        }
-        <Marker
-          coordinate={{
-            latitude: currentLocation.latitude,
-            longitude: currentLocation.longitude
-          }}
-          title='Yo'
-          pinColor='#8946A6'
-        />
-      </MapContainer>
-      {
-        showSelector &&
-          <TripSelector
-            trip={tripSelected}
-            passenger={passenger}
-            onCancelledTrip={handleCancelledTrip}
-            onConfirmedTrip={handleConfirmedTrip}
-            timeToOrigin={timeToOrigin}
-            distanceToOrigin={distanceToOrigin}
-          />
-      }
-      {
-        !showSelector && showRouteToStartingpoint &&
-          <ToStartingpoint
-            trip={tripSelected}
-            passenger={passenger}
-            onCancelledTrip={handleCancelledTrip}
-            onArriveOriginTrip={handleArriveStartingpoint}
-            arrived={arrivedToStartingpoint}
-          />
-      }
-      {
-        showRouteToEndpoint &&
-          <ToEndpoint
-            passenger={passenger}
-            trip={tripSelected}
-            arrived={arrivedToEndpoint}
-            onArriveEndpoint={handleArriveEndpoint}
-            onReport={displayReport}
-          />
-      }
     </View>
   )
 }
@@ -388,10 +273,15 @@ function HomeDriver ({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-})
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  img: {
+    height: 197,
+    width: 302,
+    alignSelf: "center",
+  },
+});
 
 export { HomeDriver }

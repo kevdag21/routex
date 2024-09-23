@@ -46,81 +46,78 @@ export function ChangePassword ({ navigation }) {
   return (
     <View>
       <View style={styles.avatarSection}>
-        <Thumbnail
-          name={userData?.name}
-          url={userData?.idImage}
-          size={90}
-        />
+        <Thumbnail name={userData?.name} url={userData?.idImage} size={90} />
       </View>
       <InputStyled
-        name='password'
+        name="password"
         secureTextEntry
-        label='Contraseña actual'
+        label="Contraseña actual"
         onChangeText={(password) => {
-          setPassword(password)
+          setPassword(password);
         }}
-        inputMode='text'
-        placeholder='Contraseña actual'
+        inputMode="text"
+        placeholder="Contraseña actual"
         errorMessage={errorMessagePassword}
       />
       <InputStyled
-        name='newpassword'
+        name="newpassword"
         secureTextEntry
-        label='Nueva contraseña'
+        label="Nueva contraseña"
         onChangeText={(newPassword) => {
-          setNewPassword(newPassword)
+          setNewPassword(newPassword);
         }}
         errorMessage={errorMessage}
-        placeholder='Contraseña'
-        inputMode='text'
+        placeholder="Contraseña"
+        inputMode="text"
       />
       <InputStyled
-        label='Nueva contraseña'
-        name='newpasswordvalidation'
+        label="Nueva contraseña"
+        name="newpasswordvalidation"
         secureTextEntry
         onChangeText={(newPasswordValidation) => {
-          setNewPasswordValidation(newPasswordValidation)
+          setNewPasswordValidation(newPasswordValidation);
         }}
         errorMessage={errorMessage}
-        placeholder='Contraseña'
-        inputMode='text'
+        placeholder="Contraseña"
+        inputMode="text"
       />
       <Button
-        title='Guardar cambios'
+        title="Guardar cambios"
         buttonStyle={styles.button}
-        color='#8946A6'
+        color="#FF7D3E"
         onPress={handleOnPress}
       />
     </View>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#B762C1'
+    backgroundColor: "white",
   },
   avatarSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#B762C1',
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "white",
     marginBottom: 20,
-    padding: '1%',
-    height: '20%'
+
+    padding: "1%",
+    height: "40%",
   },
   detailsSection: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: "white",
   },
   button: {
     marginTop: 5,
-    color: '#8946A6',
+    color: "#8946A6",
     width: 330,
     height: 50,
-    alignSelf: 'center',
-    borderRadius: 10
+    alignSelf: "center",
+    borderRadius: 10,
   },
   changePassword: {
-    marginTop: 500
-  }
-})
+    marginTop: 500,
+  },
+});

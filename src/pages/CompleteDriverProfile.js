@@ -47,51 +47,47 @@ const DriverInfo = ({ navigation }) => {
           <Text style={styles.title}>Completar perfil</Text>
         </View>
         <InputStyled
-          name='name'
-          placeholder='Nombre completo'
+          name="name"
+          placeholder="Nombre completo"
           value={name}
-          onChangeText={text => setName(text)}
-          inputMode='text'
+          onChangeText={(text) => setName(text)}
+          inputMode="text"
           errorMessage={errorMessage}
         />
+        <InputStyled name="email" value={userData.email} disabled />
         <InputStyled
-          name='email'
-          value={userData.email}
-          disabled
-        />
-        <InputStyled
-          name='phone'
-          placeholder='Teléfono'
+          name="phone"
+          placeholder="Teléfono"
           value={phone}
-          onChangeText={text => setPhone(text)}
-          inputMode='tel'
+          onChangeText={(text) => setPhone(text)}
+          inputMode="tel"
           errorMessage={errorMessage}
         />
         <InputStyled
-          name='drivingLicense'
-          placeholder='Número de licencia de conducir'
+          name="drivingLicense"
+          placeholder="Número de licencia de conducir"
           value={drivingLicense}
-          onChangeText={text => setDrivingLicense(text)}
-          inputMode='text'
+          onChangeText={(text) => setDrivingLicense(text)}
+          inputMode="text"
           errorMessage={errorMessage}
         />
         <InputStyled
-          name='city'
-          placeholder='Ciudad'
+          name="city"
+          placeholder="Ciudad"
           value={city}
-          onChangeText={text => setCity(text)}
-          inputMode='text'
+          onChangeText={(text) => setCity(text)}
+          inputMode="text"
           errorMessage={errorMessage}
         />
         <Button
-          title='Siguiente'
+          title="Siguiente"
           onPress={handlePressButton}
-          color='#8946A6'
+          color="#FF7D3E"
           buttonStyle={styles.button}
         />
       </View>
     </ScrollView>
-  )
+  );
 }
 
 const VehicleInfo = ({ navigation }) => {
@@ -123,46 +119,46 @@ const VehicleInfo = ({ navigation }) => {
           <Text style={styles.title}>Detalles del vehículo</Text>
         </View>
         <InputStyled
-          name='brand'
-          placeholder='Marca'
+          name="brand"
+          placeholder="Marca"
           value={brand}
-          onChangeText={text => setBrand(text)}
-          inputMode='text'
+          onChangeText={(text) => setBrand(text)}
+          inputMode="text"
           errorMessage={errorMessage}
         />
         <InputStyled
-          name='model'
-          placeholder='Modelo'
+          name="model"
+          placeholder="Modelo"
           value={model}
-          onChangeText={text => setModel(text)}
-          inputMode='text'
+          onChangeText={(text) => setModel(text)}
+          inputMode="text"
           errorMessage={errorMessage}
         />
         <InputStyled
-          name='year'
-          placeholder='Año'
+          name="year"
+          placeholder="Año"
           value={year}
-          onChangeText={text => setYear(text)}
-          inputMode='numeric'
+          onChangeText={(text) => setYear(text)}
+          inputMode="numeric"
           errorMessage={errorMessage}
         />
         <InputStyled
-          name='licensePlate'
-          placeholder='Número de la placa'
+          name="licensePlate"
+          placeholder="Número de la placa"
           value={licensePlate}
-          onChangeText={text => setLicensePlate(text)}
-          inputMode='text'
+          onChangeText={(text) => setLicensePlate(text)}
+          inputMode="text"
           errorMessage={errorMessage}
         />
         <Button
-          title='Completar registro'
+          title="Completar registro"
           onPress={handlePressButton}
-          color='#8946A6'
+          color="#FF7D3E"
           buttonStyle={styles.button}
         />
       </View>
     </ScrollView>
-  )
+  );
 }
 
 export function CompleteDriverProfile () {

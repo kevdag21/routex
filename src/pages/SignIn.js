@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { View, Text, Alert, StyleSheet } from 'react-native'
+import { View, Text, Alert, Image, StyleSheet } from "react-native";
 import { Button } from '@rneui/base'
 
 import { useSignInWithProvider } from '../hooks/useSignInWithProvider'
@@ -12,7 +12,7 @@ import SignInLikeContext from '../context/SingInLikeContext'
 export function SignIn ({ route }) {
   const { setSignInLike } = useContext(SignInLikeContext)
   const { userType } = route.params
-
+  const [page, setPage] = useState(route.params?.page || 2);
   const { isLoading: isLoadingFacebook, error: errorFacebook, signIn: signInWithFacebook } = useSignInWithProvider({ provider: 'facebook' })
   const { isLoading: isLoadingGoogle, error: errorGoogle, signIn: signInWithGoogle } = useSignInWithProvider({ provider: 'google' })
   const { isLoading: isLoadingEmail, error: errorEmail, signIn } = useSignInWithEmail()
@@ -49,58 +49,64 @@ export function SignIn ({ route }) {
     await signInWithFacebook()
   }
 
+    const getImage = () => {
+      if (page === 0) return require("../../assets/Passenger_1.png");
+      if (page === 1) return require("../../assets/Passenger_2.png");
+      if (page === 2) return require("../../assets/Passenger_3.png");
+    };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Iniciar sesión</Text>
       </View>
+      <Image source={getImage()} style={styles.img} resizeMode="contain" />
       <InputStyled
-        name='email'
-        placeholder='Correo electrónico'
+        name="email"
+        placeholder="Correo electrónico"
         value={email}
-        onChangeText={text => setEmail(text.trim())}
+        onChangeText={(text) => setEmail(text.trim())}
         errorMessage={errorMessage}
-        inputMode='email'
+        inputMode="email"
       />
       <InputStyled
-        name='password'
-        placeholder='Contraseña'
+        name="password"
+        placeholder="Contraseña"
         secureTextEntry
         value={password}
-        onChangeText={text => setPassword(text.trimStart())}
+        onChangeText={(text) => setPassword(text.trimStart())}
         errorMessage={errorMessage}
-        inputMode='text'
+        inputMode="text"
       />
       <Button
-        title='Iniciar sesión'
+        title="Iniciar sesión"
         disabled={isLoadingEmail}
         onPress={handlePressButton}
-        color='#8946A6'
+        color="#FF7D3E"
         buttonStyle={styles.button}
       />
       <View style={styles.providers}>
         <Button
-          color='#fff'
+          color="#fff"
           icon={{
-            color: 'blue',
-            type: 'font-awesome',
-            name: 'facebook'
+            color: "blue",
+            type: "font-awesome",
+            name: "facebook",
           }}
           onPress={handleFacebookPressButton}
           disabled={isLoadingFacebook || isLoadingGoogle}
         />
         <Button
           icon={{
-            type: 'font-awesome',
-            name: 'google'
+            type: "font-awesome",
+            name: "google",
           }}
           onPress={handleGooglePressButton}
           disabled={isLoadingFacebook || isLoadingGoogle}
-          color='#fff'
+          color="#fff"
         />
       </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -128,5 +134,12 @@ const styles = StyleSheet.create({
     height: 50,
     alignSelf: 'center',
     borderRadius: 10
-  }
+  },
+    img: {
+    height: 197,
+    width: 302,
+    alignSelf: 'center',
+    marginBottom: 50
+    
+  },
 })

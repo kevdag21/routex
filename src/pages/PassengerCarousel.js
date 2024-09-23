@@ -4,11 +4,11 @@ import { View, Text, StyleSheet, Image, Dimensions } from 'react-native'
 import { getData, storeData } from '../utils/manageDataOnDevice'
 import { SignButtons } from '../components/SignButtons'
 
-const HEADERS = ['Toma un viaje seguro', 'Del destino a tu casa', 'Siempre Unidas']
+const HEADERS = ['Toma un viaje seguro', 'Del destino a tu casa', 'Encuentra tu ruta']
 const DESCRIPTIONS = [
   'Para mayor seguridad todas nuestras conductoras están capacitadas en caso de emergencia.',
   'Todos nuestros viajes están controlados en tiempo real por lo que siempre sabrás donde estás.',
-  'Sabemos lo importante que es para ti estar segura por lo que todas nuestras conductoras son mujeres como tú.'
+  'Sabemos lo importante que es para ti usar el transporte pùblico. Routex solo lo hace mejor.'
 ]
 const { height } = Dimensions.get('window')
 

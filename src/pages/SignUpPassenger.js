@@ -52,56 +52,56 @@ export function SignUpPassenger ({ navigation }) {
           <Text style={styles.title}>Crear nueva cuenta</Text>
         </View>
         <InputStyled
-          name='name'
-          placeholder='Nombre completo'
+          name="name"
+          placeholder="Nombre completo"
           value={name}
-          onChangeText={text => setName(text)}
+          onChangeText={(text) => setName(text)}
           errorMessage={errorMessage}
-          inputMode='text'
+          inputMode="text"
         />
         <InputStyled
-          name='email'
-          placeholder='Correo electrónico'
+          name="email"
+          placeholder="Correo electrónico"
           value={email}
-          onChangeText={text => setEmail(text)}
+          onChangeText={(text) => setEmail(text)}
           errorMessage={errorMessage}
-          inputMode='email'
+          inputMode="email"
         />
         <InputStyled
-          name='phone'
-          placeholder='Teléfono'
+          name="phone"
+          placeholder="Teléfono"
           value={phone}
-          onChangeText={text => setPhone(text)}
+          onChangeText={(text) => setPhone(text)}
           errorMessage={errorMessage}
-          inputMode='tel'
+          inputMode="tel"
         />
         <InputStyled
-          name='emergencyPhone'
-          placeholder='Teléfono de emergencia'
+          name="emergencyPhone"
+          placeholder="Teléfono de emergencia"
           value={emergencyPhone}
-          onChangeText={text => setEmergencyPhone(text)}
+          onChangeText={(text) => setEmergencyPhone(text)}
           errorMessage={errorMessage}
-          inputMode='tel'
+          inputMode="tel"
         />
         <InputStyled
-          name='password'
-          placeholder='Contraseña'
+          name="password"
+          placeholder="Contraseña"
           secureTextEntry
           value={password}
-          onChangeText={text => setPassword(text)}
+          onChangeText={(text) => setPassword(text)}
           errorMessage={errorMessage}
-          inputMode='text'
+          inputMode="text"
         />
         <Button
-          title='Registrarse'
+          title="Registrarse"
           disabled={isLoadingSignUp}
           onPress={handlePressButton}
-          color='#8946A6'
+          color="#FF7D3E"
           buttonStyle={styles.button}
         />
       </View>
     </ScrollView>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
